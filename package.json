@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "howler": "^2.1.2",
     "pixi.js": "^5.0.0",
     "ssri": "^5.2.4"
   }
