@@ -11,12 +11,20 @@ const size = {
 const SYMBOL_SIZE = size.height / 4;
 const REEL_WIDTH = size.width / 5.3;
 
-const Reel_Spin = new Howl({
+/*const Reel_Spin = new Howl({
     src: ['./src/assets/sounds/Reel_Spin.mp3']
 });
 
 const Landing_1 = new Howl({
     src: ['./src/assets/sounds/Landing_1.mp3']
+});*/
+
+const Reel_Spin = new Howl({
+    src: ['https://res.cloudinary.com/sanzone/video/upload/v1556886770/slot-game/assets/sounds/Reel_Spin.mp3']
+});
+
+const Landing_1 = new Howl({
+    src: ['https://res.cloudinary.com/sanzone/video/upload/v1556886770/slot-game/assets/sounds/Landing_1.mp3']
 });
 
 let running = false;
@@ -29,7 +37,8 @@ document.body.appendChild(app.view);
 
 // Create background 
 // Create repeat tilingSprite
-const backgGround = PIXI.Texture.from('./src/assets/img/winningFrameBackground.jpg');
+//const backgGround = PIXI.Texture.from('./src/assets/img/winningFrameBackground.jpg');
+const backgGround = PIXI.Texture.from('https://res.cloudinary.com/sanzone/image/upload/v1556886770/slot-game/assets/img/winningFrameBackground.png');
 const tilingSprite = new PIXI.TilingSprite(
     backgGround,
     app.screen.width,
@@ -38,12 +47,13 @@ const tilingSprite = new PIXI.TilingSprite(
 app.stage.addChild(tilingSprite);
 
 // Create background frame
-const frameSprite = new PIXI.Sprite.from('./src/assets/img/slotOverlay.png')
+//const frameSprite = new PIXI.Sprite.from('./src/assets/img/slotOverlay.png')
+const frameSprite = new PIXI.Sprite.from('https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/slotOverlay.png')
 frameSprite.width = size.width;
 frameSprite.height = size.height;
 app.stage.addChild(frameSprite);
 
-PIXI.Loader.shared
+/*PIXI.Loader.shared
     .add('01', './src/assets/img/symbols/01.png')
     .add('02', './src/assets/img/symbols/02.png')
     .add('03', './src/assets/img/symbols/03.png')
@@ -57,6 +67,23 @@ PIXI.Loader.shared
     .add('11', './src/assets/img/symbols/11.png')
     .add('12', './src/assets/img/symbols/12.png')
     .add('13', './src/assets/img/symbols/13.png')
+    .load(onAssetsLoaded);*/
+
+
+PIXI.Loader.shared
+    .add('01', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/02.png')
+    .add('02', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/02.png')
+    .add('03', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/03.png')
+    .add('04', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/04.png')
+    .add('05', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/05.png')
+    .add('06', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/06.png')
+    .add('07', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/07.png')
+    .add('08', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/08.png')
+    .add('09', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/09.png')
+    .add('10', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/10.png')
+    .add('11', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/11.png')
+    .add('12', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/12.png')
+    .add('13', 'https://res.cloudinary.com/sanzone/image/upload/v1556886769/slot-game/assets/img/symbols/13.png')
     .load(onAssetsLoaded);
 
 function onAssetsLoaded() {
@@ -107,7 +134,8 @@ function onAssetsLoaded() {
     app.stage.addChild(reelContainer);
 
     // Create textureTop
-    const textureTop = PIXI.Texture.from('./src/assets/img/Mr_Monkey_2b.png');
+    //const textureTop = PIXI.Texture.from('./src/assets/img/Mr_Monkey_2b.png');
+    const textureTop = PIXI.Texture.from('https://res.cloudinary.com/sanzone/image/upload/v1556886768/slot-game/assets/img/Mr_Monkey_2b.png');
     const spriteTop = new PIXI.Sprite(textureTop);
     spriteTop.x = Math.round((app.screen.width / 2 - textureTop.width / 2));
     spriteTop.y = Math.round((textureTop.height / 10));
@@ -115,10 +143,14 @@ function onAssetsLoaded() {
 
     // Create start button begin
     //Textures Start Button
-    const textureStartDisabled = PIXI.Texture.from('./src/assets/img/btn_spin_disable.png');
+    /*const textureStartDisabled = PIXI.Texture.from('./src/assets/img/btn_spin_disable.png');
     const textureStartHover = PIXI.Texture.from('./src/assets/img/btn_spin_hover.png');
     const textureStartNormal = PIXI.Texture.from('./src/assets/img/btn_spin_normal.png');
-    const textureStartPressed = PIXI.Texture.from('./src/assets/img/btn_spin_pressed.png');
+    const textureStartPressed = PIXI.Texture.from('./src/assets/img/btn_spin_pressed.png');*/
+    const textureStartDisabled = PIXI.Texture.from('https://res.cloudinary.com/sanzone/image/upload/v1556886768/slot-game/assets/img/btn_spin_disable.png');
+    const textureStartHover = PIXI.Texture.from('https://res.cloudinary.com/sanzone/image/upload/v1556886768/slot-game/assets/img/btn_spin_hover.png');
+    const textureStartNormal = PIXI.Texture.from('https://res.cloudinary.com/sanzone/image/upload/v1556886768/slot-game/assets/img/btn_spin_normal.png');
+    const textureStartPressed = PIXI.Texture.from('https://res.cloudinary.com/sanzone/image/upload/v1556886768/slot-game/assets/img/btn_spin_pressed.png');
     const button = new PIXI.Sprite(textureStartNormal);
     button.width = button.height = SYMBOL_SIZE / 2;
     button.x = Math.round((app.screen.width - button.width));
